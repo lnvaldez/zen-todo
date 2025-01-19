@@ -15,4 +15,11 @@ class StorageService {
     final List decodedList = json.decode(tasksString);
     return decodedList.map((item) => Task.fromJson(item)).toList();
   }
+
+  Future saveTasks(List tasks) async {
+    final String encodedTasks = json.encode(
+      tasks.map((task) => task.toJson()).toList(),
+    );
+    await _prefs.setString(_key, encodedTasks);
+  }
 }
