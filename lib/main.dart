@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Zen Todo',
       theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xffc7d4c0),
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

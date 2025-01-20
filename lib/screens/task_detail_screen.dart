@@ -9,7 +9,10 @@ class TaskDetailScreen extends StatelessWidget {
     final task = ModalRoute.of(context)!.settings.arguments as Task;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Task Detail')),
+      appBar: AppBar(
+        title: const Text('Task Detail', style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.green,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

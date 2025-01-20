@@ -8,32 +8,44 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-            child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        'assets/zen_logo.svg',
-                        height: 120,
-                      ),
-                      const SizedBox(height: 48),
-                      SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            onPressed: () =>
-                                Navigator.pushNamed(context, '/tasks'),
-                            child: const Text('View Tasks'),
-                          )),
-                      const SizedBox(height: 16),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () =>
-                              Navigator.pushNamed(context, '/quotes'),
-                          child: const Text('Daily Quotes'),
-                        ),
-                      )
-                    ]))));
+            child: Align(
+      alignment: Alignment.center,
+      child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            SvgPicture.asset(
+              'assets/zen_logo.svg',
+              height: 120,
+              colorFilter: ColorFilter.mode(Colors.green, BlendMode.srcIn),
+            ),
+            const SizedBox(height: 48),
+            SizedBox(
+                width: 250,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor: WidgetStatePropertyAll(
+                          const Color.fromRGBO(91, 177, 94, 1))),
+                  onPressed: () => Navigator.pushNamed(context, '/tasks'),
+                  child: const Text(
+                    'View Tasks',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                )),
+            const SizedBox(height: 16),
+            SizedBox(
+              width: 250,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(
+                        const Color.fromARGB(255, 135, 184, 136))),
+                onPressed: () => Navigator.pushNamed(context, '/quotes'),
+                child: const Text(
+                  'Daily Quotes',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            )
+          ])),
+    )));
   }
 }

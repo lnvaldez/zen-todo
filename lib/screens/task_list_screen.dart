@@ -23,7 +23,13 @@ class _TaskListScreenState extends State<TaskListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Tasks')),
+      appBar: AppBar(
+        title: const Text(
+          'Tasks',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.green,
+      ),
       body: Consumer<TasksProvider>(
         builder: (context, tasksProvider, child) {
           final tasks = tasksProvider.tasks;
@@ -55,6 +61,8 @@ class _TaskListScreenState extends State<TaskListScreen> {
                 child: ListTile(
                   leading: Checkbox(
                     value: task.isCompleted,
+                    activeColor: Colors.green,
+                    checkColor: Colors.white,
                     onChanged: (bool? value) {
                       tasksProvider.toggleTask(task.id);
                     },
@@ -72,6 +80,8 @@ class _TaskListScreenState extends State<TaskListScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
+        foregroundColor: Colors.white,
         onPressed: _showAddTaskDialog,
         child: const Icon(Icons.add),
       ),

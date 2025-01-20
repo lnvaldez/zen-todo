@@ -33,35 +33,53 @@ class _QuotesScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Daily Quotes')),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            SvgPicture.asset(
-              'assets/zen_logo.svg',
-              height: 100,
-            ),
-            const SizedBox(height: 32),
-            ElevatedButton(
-              onPressed: _isLoading ? null : _fetchQuote,
-              child: Text(_isLoading ? 'Loading...' : 'Get Quote'),
-            ),
-            if (_currentQuote != null) ...[
+      appBar: AppBar(
+        title: const Text(
+          'Daily Quotes',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.green,
+      ),
+      body: Align(
+        alignment: Alignment.center,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                'assets/zen_logo.svg',
+                height: 100,
+                colorFilter:
+                    const ColorFilter.mode(Colors.green, BlendMode.srcIn),
+              ),
               const SizedBox(height: 32),
-              Text(
-                _currentQuote!.text,
-                style: Theme.of(context).textTheme.titleLarge,
-                textAlign: TextAlign.center,
+              ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor: const WidgetStatePropertyAll(
+                        const Color.fromRGBO(91, 177, 94, 1))),
+                onPressed: _isLoading ? null : _fetchQuote,
+                child: Text(
+                  _isLoading ? 'Loading...' : 'Get Quote',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
-              const SizedBox(height: 16),
-              Text(
-                '- ${_currentQuote!.author}',
-                style: Theme.of(context).textTheme.titleMedium,
-                textAlign: TextAlign.center,
-              ),
+              if (_currentQuote != null) ...[
+                const SizedBox(height: 32),
+                Text(
+                  _currentQuote!.text,
+                  style: Theme.of(context).textTheme.titleLarge,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  '- ${_currentQuote!.author}',
+                  style: Theme.of(context).textTheme.titleMedium,
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );
