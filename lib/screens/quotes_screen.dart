@@ -4,13 +4,13 @@ import '../services/quotes_service.dart';
 import '../models/quote.dart';
 
 class QuotesScreen extends StatefulWidget {
-  const QuotesScreen({Key? key}) : super(key: key);
+  const QuotesScreen({super.key});
 
   @override
-  _QuotesScreenState createState() => _QuotesScreenState();
+  State<QuotesScreen> createState() => _QuotesScreenState();
 }
 
-class _QuotesScreenState extends State {
+class _QuotesScreenState extends State<QuotesScreen> {
   final _quotesService = QuotesService();
   Quote? _currentQuote;
   bool _isLoading = false;
@@ -21,7 +21,7 @@ class _QuotesScreenState extends State {
       final quote = await _quotesService.getRandomQuote();
       setState(() => _currentQuote = quote);
     } catch (e) {
-      print("Error fetching quote: $e");
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error: ${e.toString()}')),
       );
@@ -55,13 +55,13 @@ class _QuotesScreenState extends State {
               ),
               const SizedBox(height: 32),
               ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor: const WidgetStatePropertyAll(
-                        const Color.fromRGBO(91, 177, 94, 1))),
+                style: const ButtonStyle(
+                    backgroundColor:
+                        WidgetStatePropertyAll(Color.fromRGBO(91, 177, 94, 1))),
                 onPressed: _isLoading ? null : _fetchQuote,
                 child: Text(
                   _isLoading ? 'Loading...' : 'Get Quote',
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                 ),
               ),
               if (_currentQuote != null) ...[

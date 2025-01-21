@@ -16,15 +16,16 @@ class WelcomeScreen extends StatelessWidget {
             SvgPicture.asset(
               'assets/zen_logo.svg',
               height: 120,
-              colorFilter: ColorFilter.mode(Colors.green, BlendMode.srcIn),
+              colorFilter:
+                  const ColorFilter.mode(Colors.green, BlendMode.srcIn),
             ),
             const SizedBox(height: 48),
             SizedBox(
                 width: 250,
                 child: ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(
-                          const Color.fromRGBO(91, 177, 94, 1))),
+                  style: const ButtonStyle(
+                      backgroundColor:
+                          WidgetStatePropertyAll(Color.fromRGBO(0, 250, 8, 1))),
                   onPressed: () => Navigator.pushNamed(context, '/tasks'),
                   child: const Text(
                     'View Tasks',
@@ -35,9 +36,9 @@ class WelcomeScreen extends StatelessWidget {
             SizedBox(
               width: 250,
               child: ElevatedButton(
-                style: ButtonStyle(
+                style: const ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(
-                        const Color.fromARGB(255, 135, 184, 136))),
+                        Color.fromARGB(255, 135, 184, 136))),
                 onPressed: () => Navigator.pushNamed(context, '/quotes'),
                 child: const Text(
                   'Daily Quotes',
