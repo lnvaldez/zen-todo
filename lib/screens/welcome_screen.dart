@@ -16,16 +16,16 @@ class WelcomeScreen extends StatelessWidget {
             SvgPicture.asset(
               'assets/zen_logo.svg',
               height: 120,
-              colorFilter:
-                  const ColorFilter.mode(Colors.green, BlendMode.srcIn),
+              colorFilter: const ColorFilter.mode(
+                  Color.fromARGB(255, 135, 184, 136), BlendMode.srcIn),
             ),
             const SizedBox(height: 48),
             SizedBox(
                 width: 250,
                 child: ElevatedButton(
                   style: const ButtonStyle(
-                      backgroundColor:
-                          WidgetStatePropertyAll(Color.fromRGBO(0, 250, 8, 1))),
+                      backgroundColor: WidgetStatePropertyAll(
+                          Color.fromARGB(255, 135, 184, 136))),
                   onPressed: () => Navigator.pushNamed(context, '/tasks'),
                   child: const Text(
                     'View Tasks',

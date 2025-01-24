@@ -28,7 +28,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
           'Tasks',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.green,
+        backgroundColor: const Color.fromARGB(255, 135, 184, 136),
       ),
       body: Consumer<TasksProvider>(
         builder: (context, tasksProvider, child) {
@@ -52,7 +52,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
                       onPressed: (_) {
                         tasksProvider.removeTask(task.id);
                       },
-                      backgroundColor: Colors.red,
+                      backgroundColor: const Color.fromARGB(255, 135, 184, 136),
                       icon: Icons.delete,
                       label: 'Delete',
                     ),
@@ -61,7 +61,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
                 child: ListTile(
                   leading: Checkbox(
                     value: task.isCompleted,
-                    activeColor: Colors.green,
+                    activeColor: const Color.fromARGB(255, 135, 184, 136),
                     checkColor: Colors.white,
                     onChanged: (bool? value) {
                       tasksProvider.toggleTask(task.id);
@@ -80,7 +80,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.green,
+        backgroundColor: const Color.fromARGB(255, 135, 184, 136),
         foregroundColor: Colors.white,
         onPressed: _showAddTaskDialog,
         child: const Icon(Icons.add),
