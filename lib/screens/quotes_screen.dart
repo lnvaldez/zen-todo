@@ -38,7 +38,7 @@ class _QuotesScreenState extends State<QuotesScreen> {
           'Daily Quotes',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.green,
+        backgroundColor: const Color.fromARGB(255, 135, 184, 136),
       ),
       body: Align(
         alignment: Alignment.center,
@@ -50,14 +50,14 @@ class _QuotesScreenState extends State<QuotesScreen> {
               SvgPicture.asset(
                 'assets/zen_logo.svg',
                 height: 100,
-                colorFilter:
-                    const ColorFilter.mode(Colors.green, BlendMode.srcIn),
+                colorFilter: const ColorFilter.mode(
+                    Color.fromARGB(255, 135, 184, 136), BlendMode.srcIn),
               ),
               const SizedBox(height: 32),
               ElevatedButton(
                 style: const ButtonStyle(
-                    backgroundColor:
-                        WidgetStatePropertyAll(Color.fromRGBO(91, 177, 94, 1))),
+                    backgroundColor: WidgetStatePropertyAll(
+                        Color.fromARGB(255, 135, 184, 136))),
                 onPressed: _isLoading ? null : _fetchQuote,
                 child: Text(
                   _isLoading ? 'Loading...' : 'Get Quote',
