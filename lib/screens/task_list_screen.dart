@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import '../providers/tasks_provider.dart';
+import 'package:zen_todo/widgets/bouncing.dart';
 
 class TaskListScreen extends StatefulWidget {
   const TaskListScreen({super.key});
@@ -79,11 +80,14 @@ class _TaskListScreenState extends State<TaskListScreen> {
           );
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color.fromARGB(255, 135, 184, 136),
-        foregroundColor: Colors.white,
-        onPressed: _showAddTaskDialog,
-        child: const Icon(Icons.add),
+      floatingActionButton: Bouncing(
+        onPressed: () {},
+        child: FloatingActionButton(
+          backgroundColor: const Color.fromARGB(255, 135, 184, 136),
+          foregroundColor: Colors.white,
+          onPressed: _showAddTaskDialog,
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }
