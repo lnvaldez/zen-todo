@@ -2,7 +2,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
-        android:label="zen_todo"
+        android:label="Zen Todo"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
